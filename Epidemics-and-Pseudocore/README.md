@@ -1,5 +1,5 @@
 Considering the SEIRS (Susceptible - Exposed - Infectious - Recovered - Susceptible) model for the spreading
-of a disease. The compartments are desribed below (Read more at :https://www.idmod.org/docs/hiv/model-seir.html).
+of a disease. The compartments are desribed below (Read more at: https://www.idmod.org/docs/hiv/model-seir.html).
 
 - Susceptible : The people in this compartment are not infected but are prone to infection.
 - Exposed : The people in this compartment are infected but not infectious (do not infect others). A person
@@ -9,6 +9,6 @@ compartment for t_i timesteps.
 - Recovered : The people in this compartment are recovered and aquires an immunity against the disease for t_r timesteps. After being for t_r timesteps in this compartment, a person switches back to the susceptible
 compartment.
 
-Consider the Karate and Dolphin networks. Assuming p to be the probability of infection, implement the
-SEIRS model on these networks. Also use this implementation to determine the pseudo-core in the networks.
-Tabulate your results for varying values of p, t_i, t_e and t_r.
+Considered the Karate and Dolphin networks. Assuming p to be the probability of infection, implement the
+SEIRS model on these networks. Also, this implementation is uesd to determine the pseudo-core in the networks.
+The results are tabulated for varying values of p, t_i, t_e and t_r.
