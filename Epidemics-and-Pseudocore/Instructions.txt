@@ -1,0 +1,131 @@
+Epidemics and Pseudo-core
+1.	On Jupyter Notebook, make graphs using karate.gml and dolphins.gml
+2.	Import libraries network, matplotlib.plot, random
+3.	Function func() takes the Graph, the seed nodes, t_e, t_i, t_r and p as input parameters.
+4.	Run func() with appropriate inputs. The function prints the data for each day till the epidemic persists in the network and as output we get the nodes which are currently exposed, infected and recovered and the nodes which were affected by the epidemic. (The exposed and infected outputs are received as empty).
+5.	Outputs for the same parameters will vary due to the consideration of probability p in the infection transmission.
+
+Example: For karate network
+e, i, r, a = func(G,[1,2,11],1,2,5,0.4)
+seed = [1,2,11]
+t_e = 1
+t_i = 2
+t_r = 5
+p = 0.4
+
+Exposed [1, 2, 11]
+
+Day 1
+Infected [1, 2, 11]
+Recovered []
+New infected [4, 5, 6, 7, 12, 13, 14, 18, 31]
+Exposed [4, 5, 6, 7, 12, 13, 14, 18, 31]
+
+Day 2
+Infected [4, 5, 6, 7, 12, 13, 14, 18, 31, 1, 2, 11, 4, 5, 6, 7, 12, 13, 14, 18, 31]
+Recovered []
+New infected [8, 17, 34, 33, 9, 20, 22, 3]
+Exposed [8, 17, 34, 33, 9, 20, 22, 3]
+
+Day 3
+Infected [8, 17, 34, 33, 9, 20, 22, 3, 4, 5, 6, 7, 12, 13, 14, 18, 31]
+Recovered [1, 2, 11, 4, 5, 6, 7, 12, 13, 14, 18, 31, 8, 17, 34, 33, 9, 20, 22, 3]
+New infected [10, 15, 21, 24, 28, 32, 19, 23]
+Exposed [10, 15, 21, 24, 28, 32, 19, 23]
+
+Day 4
+Infected [10, 15, 21, 24, 28, 32, 19, 23, 8, 17, 34, 33, 9, 20, 22, 3]
+Recovered [4, 5, 6, 7, 12, 13, 14, 18, 31, 1, 2, 11, 4, 5, 6, 7, 12, 13, 14, 18, 31, 8, 17, 34, 33, 9, 20, 22, 3, 10, 15, 21, 24, 28, 32, 19, 23]
+New infected [30, 29, 16]
+Exposed [30, 29, 16]
+
+Day 5
+Infected [30, 29, 16, 10, 15, 21, 24, 28, 32, 19, 23]
+Recovered [8, 17, 34, 33, 9, 20, 22, 3, 4, 5, 6, 7, 12, 13, 14, 18, 31, 1, 2, 11, 4, 5, 6, 7, 12, 13, 14, 18, 31, 8, 17, 34, 33, 9, 20, 22, 3, 10, 15, 21, 24, 28, 32, 19, 23, 30, 29, 16]
+New infected [26]
+Exposed [26]
+
+Day 6
+Infected [26, 30, 29, 16]
+Recovered [10, 15, 21, 24, 28, 32, 19, 23, 8, 17, 34, 33, 9, 20, 22, 3, 4, 5, 6, 7, 12, 13, 14, 18, 31, 1, 2, 11, 4, 5, 6, 7, 12, 13, 14, 18, 31, 8, 17, 34, 33, 9, 20, 22, 3, 10, 15, 21, 24, 28, 32, 19, 23, 30, 29, 16, 26]
+New infected []
+Exposed []
+
+Day 7
+Infected [26]
+Recovered [30, 29, 16, 10, 15, 21, 24, 28, 32, 19, 23, 8, 17, 34, 33, 9, 20, 22, 3, 4, 5, 6, 7, 12, 13, 14, 18, 31, 1, 2, 11, 4, 5, 6, 7, 12, 13, 14, 18, 31, 8, 17, 34, 33, 9, 20, 22, 3, 10, 15, 21, 24, 28, 32, 19, 23, 30, 29, 16, 26]
+New infected []
+Exposed []
+
+Day 8
+Infected []
+Recovered [26, 30, 29, 16, 10, 15, 21, 24, 28, 32, 19, 23, 8, 17, 34, 33, 9, 20, 22, 3, 4, 5, 6, 7, 12, 13, 14, 18, 31]
+New infected []
+Exposed []
+
+The epidemic persisted for 8 days and affected all the 34 people in the network.
+
+
+Example: For dolphin network
+e, i, r, a = func(G1,[2,10],2,1,5,0.2)
+seed = [2,10]
+t_e = 2
+t_i = 1
+t_r = 5
+p = 0.2
+
+Exposed [2, 10]
+
+Day 1
+Infected []
+Recovered []
+New infected []
+Exposed [2, 10]
+
+Day 2
+Infected [2, 10]
+Recovered []
+New infected [47]
+Exposed [47]
+
+Day 3
+Infected []
+Recovered [2, 10, 47]
+New infected []
+Exposed [47]
+
+Day 4
+Infected [47]
+Recovered [2, 10, 47]
+New infected []
+Exposed []
+
+Day 5
+Infected []
+Recovered [47, 2, 10, 47]
+New infected []
+Exposed []
+
+The epidemic persisted for 5 days and affected 3 out of 62 people in the network.
+
+ 
+Determining the pseudo-core in the networks
+Tabulated results for varying values of p, t_i, t_e and t_r
+
+In karate network max kshell number was 4. 
+Iteratively taking 3 random nodes from each shell one by one in the seed and t_e = 1, t_i = 1, t_r = 3 and p = 0.3. Then taking average for each shell number we get the following plot.
+   
+
+In dolphins’ network max kshell number was 4. 
+Iteratively taking 3 random nodes from each shell one by one in the seed and t_e = 1, t_i = 1, t_r = 3 and p = 0.2. Then taking average for each shell number we get the following plot.
+   
+
+In dolphins’ network max kshell number was 4. 
+Iteratively taking 3 random nodes from each shell one by one in the seed and t_e = 1, t_i = 2, t_r = 3 and p = 0.2. Then taking average for each shell number we get the following plot.
+     
+
+
+
+Iteratively taking 3 random nodes from each shell one by one in the seed and t_e = 1, t_i = 1, t_r = 5 and p = 0.5. Then taking average for each shell number we get the following plot.
+    
+
