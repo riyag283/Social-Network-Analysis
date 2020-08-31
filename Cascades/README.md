@@ -1,3 +1,4 @@
+Cascades are periods during which individuals in a population exhibit herd-like behaviour because they are making decisions based on the actions of other individuals rather than relying on their own information about the problem.
 
 ## Instructions
 Run the code.R file to execute function initializations and definitions.
